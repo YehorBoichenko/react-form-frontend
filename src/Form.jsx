@@ -18,12 +18,12 @@ import {
 } from "./styles/styledComponents";
 import elipse from "./img/elipse.png";
 
-const API = "";
+const API = "http://localhost:3000/users/";
 
 function Form() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
-  const [text, setText] = useState("");
+  const [message, setMessage] = useState("");
 
   const dispatch = useDispatch();
 
@@ -36,13 +36,13 @@ function Form() {
   };
 
   const handleTextChange = (e) => {
-    setText(e.target.value);
+    setMessage(e.target.value);
   };
 
   async function sendingData(e) {
     e.preventDefault();
 
-    dispatch(sendFormData(username, email, text));
+    dispatch(sendFormData(username, email, message));
 
     await fetch(API, {
       headers: {
@@ -50,9 +50,7 @@ function Form() {
       },
       method: "POST",
       body: JSON.stringify({
-        name: username,
-        email: email,
-        text: text,
+        user: { name: username, email: email, message: message },
       }),
     })
       .then((res) => {
@@ -64,7 +62,7 @@ function Form() {
       .finally(() => {
         setUsername("");
         setEmail("");
-        setText("");
+        setMessage("");
       });
   }
 
@@ -102,7 +100,7 @@ function Form() {
               type="text"
               placeholder="Your message*"
               onChange={handleTextChange}
-              value={text}
+              value={message}
               height="189px"
             />
           </div>

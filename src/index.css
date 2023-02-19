@@ -3,7 +3,7 @@ body {
   min-width: 320px;
   margin: 0 auto;
   font-family: sans-serif;
-  background: url(./img/yellowCircle.svg) 2% 22px no-repeat scroll,
+  background: url(./img/yellowCircle.svg) 2% 22px no-repeat scroll,url(./img/background.jpg) no-repeat scroll,
     url(./img/yellowCircleBig.svg) 70% 52% no-repeat scroll,
     url(./img/pinkCircle.svg) 83% 545px no-repeat scroll,
     url(./img/map.png) 125% -25% no-repeat scroll;
@@ -52,10 +52,10 @@ footer {
   }
 }
 
-@media (min-width: 1922px) {
+/* @media (min-width: 1922px) {
 
   body,
   footer {
     background: none;
   }
-}
+} */

@@ -4,7 +4,7 @@ const initialState = {
   form: {
     name: "",
     email: "",
-    text: "",
+    message: "",
   },
 };
 
@@ -12,9 +12,11 @@ export const formReducer = (state = initialState.form, action) => {
   switch (action.type) {
     case SEND_FORM_DATA:
       return {
-        name: action.payload.name,
-        email: action.payload.email,
-        text: action.payload.text,
+        user: {
+          name: action.payload.name,
+          email: action.payload.email,
+          message: action.payload.message,
+        },
       };
     default:
       return state;
